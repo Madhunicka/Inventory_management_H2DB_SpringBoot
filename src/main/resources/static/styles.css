@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter label {
+    margin-right: 10px;
+    font-weight: bold;
+    line-height: 38px; /* Adjust the line height to vertically center the label with the input */
+}
+
+
+.filter input {
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.filter .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.action-buttons button {
+    margin: 0 5px;
+}
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    display: none;
+    width: 400px; /* Adjust width as needed */
+    max-width: 80%; /* Limit maximum width if necessary */
+    height: 305px; /* Adjust height as needed */
+    max-height: 80%; /* Limit maximum height if necessary */
+    overflow: auto; /* Enable scrolling if content exceeds dimensions */
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+.input-container {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.popup-content form input,
+.popup-content form button {
+    display: block;
+    width: calc(100% - 20px); /* Adjust the width to leave room for margins */
+    margin-bottom: 10px; /* Adjust the margin between fields */
+    margin-right: 10px; /* Add right margin for spacing */
+    padding: 10px; /* Add padding for visual spacing */
+    border: 1px solid #ccc; /* Add border for visual separation */
+    border-radius: 4px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+}
+
+.popup-content form button {
+    width: auto; /* Allow buttons to adjust width based on content */
+    margin-right: 0; /* Remove right margin for buttons */
+}
+
+.popup-content form label {
+    margin-bottom: 5px; /* Adjust margin between labels and inputs */
+}
+
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 10001;
+}
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+

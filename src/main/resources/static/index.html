@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>My Shop</h1>
+    <div class="section">
+        <h2>Parts</h2>
+        <div class="filter">
+            <label for="filterParts">Filter: </label>
+            <input type="text" id="filterParts">
+            <button class="button" onclick="filterPartsTable()">Search</button>
+            <button class="button" onclick="clearPartsFilter()">Clear</button>
+        </div>
+        <button class="button" id="addIn-housePart" onclick="openPopup('addInhousePartPopup')">Add Inhouse Part</button>
+        <button class="button" id="addOutsourcedPart" onclick="openPopup('addOutsourcedPartPopup')">Add Outsourced Part</button>
+        <table id="partsTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Inventory</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="section">
+        <h2>Products</h2>
+        <div class="filter">
+            <label for="filterProducts">Filter: </label>
+            <input type="text" id="filterProducts">
+            <button class="button" onclick="filterProductsTable()">Search</button>
+            <button class="button" onclick="clearProductsFilter()">Clear</button>
+        </div>
+        <button class="button" id="addProduct" onclick="openPopup('addProductPopup')">Add Product</button>
+        <table id="productsTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Inventory</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Empty table body for now -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Popups -->
+<div id="addInhousePartPopup" class="popup">
+    <div class="popup-content">
+        <button class="close-button" onclick="closePopup('addInhousePartPopup')">X</button>
+        <h3>Add In-house Part</h3>
+        <form id="addInhousePartForm" onsubmit="submitInhousePartForm(event)">
+            <div class="input-container">
+                <input type="text" placeholder="Name" name="name" required>
+            </div>
+
+            <div class="input-container">
+                <input type="number" placeholder="Price" name="price" id="price" min="0" required>
+                <span id="priceError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <input type="number" placeholder="Inventory" name="inv" id="inv" min="0" required>
+                <span id="invError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <input type="text" placeholder="ID" name="id" id="id" required>
+            </div>
+
+            <button type="submit">Add Part</button>
+        </form>
+    </div>
+</div>
+
+<div id="addOutsourcedPartPopup" class="popup">
+    <div class="popup-content">
+        <button class="close-button" onclick="closePopup('addOutsourcedPartPopup')">X</button>
+        <h3>Add Outsourced Part</h3>
+        <form id="addOutsourcedPartForm" onsubmit="submitOutsourcedPartForm(event)">
+            <div class="input-container">
+                <input type="text" placeholder="Name" name="name" required>
+            </div>
+
+            <div class="input-container">
+                <input type="number" placeholder="Price" name="price" id="outsourcedPrice" min="0" required>
+                <span id="outsourcedPriceError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <input type="number" placeholder="Inventory" name="inv" id="outsourcedInv" min="0" required>
+                <span id="outsourcedInvError" class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <input type="text" placeholder="CompanyName" name="companyName" required>
+            </div>
+
+            <button type="submit">Add Part</button>
+        </form>
+    </div>
+</div>
+
+<div id="addProductPopup" class="popup" style="height: 400px;">
+    <div class="popup-content">
+        <button class="close-button" onclick="closePopup('addProductPopup')">X</button>
+        <h3>Add Product</h3>
+        <form id="addProductForm" onsubmit="submitProductForm(event)">
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="number" placeholder="Price" name="price" required>
+            <input type="number" placeholder="Inventory" name="inv" required>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h3>Available Parts</h3>
+        <table id="availablePartsTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Inventory</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="availablePartsBody">
+            <!-- Available parts will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <h3>Associated Parts</h3>
+        <table id="associatedPartsTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Inventory</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="associatedPartsBody">
+            <!-- Associated parts will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="updatePartPopup" class="popup">
+    <div class="popup-content">
+        <button class="close-button" onclick="closePopup('updatePartPopup')">X</button>
+        <h3>Update Part</h3>
+        <form id="updatePartForm" onsubmit="submitUpdatePartForm(event)">
+            <input type="hidden" id="updatePartId">
+            <input type="text" placeholder="Name" id="updatePartName" required>
+            <input type="number" placeholder="Price" id="updatePartPrice" required>
+            <input type="number" placeholder="Inventory" id="updatePartInventory" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div id="overlay" class="overlay" onclick="closeAllPopups()"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
