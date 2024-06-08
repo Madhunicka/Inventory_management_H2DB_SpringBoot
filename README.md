@@ -85,7 +85,7 @@ simply type the URL to to see the application
 
 
 ## Authors
-- [Your Name] - Initial work
+- Madhunicka M. - Initial work
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -95,4 +95,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Please replace `[Your Name]` with your actual name and customize any other details as necessary for your specific project.
+Please replace `Madhunicka M.` with your actual name and customize any other details as necessary for your specific project.
